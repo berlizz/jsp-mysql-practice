@@ -1,0 +1,5 @@
+#git ignore
+.metadata
+RemoteSystemsTempFiles
+Servers
+
