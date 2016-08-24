@@ -8,24 +8,27 @@
 </head>
 <body>
 
-	<h1>게시판 글쓰기</h1>
-	<form action="contentwrite.co" method="post">
+	<h1>글 편집</h1>
+	
+	<form action="contentmodify.co" method="post">
 		<table width="1500">
+			<input type="hidden" name="cId" value="${dto.cId}">
 			<tr>
 				<td>제목</td>
-				<td><input type="text" name="title"></td>
+				<td><input type="text" name="cTitle" value="${dto.cTitle}"></td>
 			</tr>
 			<tr>
 				<td>작성자</td>
-				<td><input type="text" name="name"></td>
+				<td>${dto.cName}</td>
 			</tr>
 			<tr>
 				<td>내용</td>
-				<td><textarea name="content"></textarea></td>
+				<td><textarea name="cContent">${dto.cContent}</textarea></td>
 			</tr>
 		</table>
-		<input type="submit" value="등록">
+		<input type="submit" value="완료">
 	</form>
+	
 
 </body>
 </html>

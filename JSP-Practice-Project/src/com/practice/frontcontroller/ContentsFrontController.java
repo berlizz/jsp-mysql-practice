@@ -10,6 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.practice.command.ContentsCommand;
+import com.practice.command.cContentDeleteCommand;
+import com.practice.command.cContentEditCommand;
+import com.practice.command.cContentModifyCommand;
+import com.practice.command.cContentReplyCommand;
+import com.practice.command.cContentReplyPageCommand;
 import com.practice.command.cContentViewCommand;
 import com.practice.command.cContentWriteCommand;
 import com.practice.command.cListCommand;
@@ -64,7 +69,27 @@ public class ContentsFrontController extends HttpServlet {
 		} else if(path.equals("/contentwrite.co")) {
 			contentsCommand = new cContentWriteCommand();
 			contentsCommand.execute(request, response);
-			viewPage = "list.jsp";
+			viewPage = "list.co";
+		} else if(path.equals("/contentedit.co")) {
+			contentsCommand = new cContentEditCommand();
+			contentsCommand.execute(request, response);
+			viewPage = "ContentEdit.jsp";
+		} else if(path.equals("/contentmodify.co")) {
+			contentsCommand = new cContentModifyCommand();
+			contentsCommand.execute(request, response);
+			viewPage = "list.co";
+		} else if(path.equals("/contentdelete.co")) {
+			contentsCommand = new cContentDeleteCommand();
+			contentsCommand.execute(request, response);
+			viewPage = "list.co";
+		} else if(path.equals("/contentreplypage.co")) {
+			contentsCommand = new cContentReplyPageCommand();
+			contentsCommand.execute(request, response);
+			viewPage = "ContentReply.jsp";
+		} else if(path.equals("/contentreply.co")) {
+			contentsCommand = new cContentReplyCommand();
+			contentsCommand.execute(request, response);
+			viewPage = "list.co";
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);

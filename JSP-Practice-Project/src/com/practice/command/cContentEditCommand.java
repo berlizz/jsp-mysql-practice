@@ -4,16 +4,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.practice.dao.ContentsDAO;
+import com.practice.dto.ContentsDTO;
 
-public class cContentWriteCommand implements ContentsCommand {
+public class cContentEditCommand implements ContentsCommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		String cTitle = request.getParameter("title");
-		String cName = request.getParameter("name");
-		String cContent = request.getParameter("content");
+		String cId = request.getParameter("cId");
 		ContentsDAO dao = new ContentsDAO();
-		dao.contentWrite(cTitle, cName, cContent);
+		ContentsDTO dto = dao.contentEdit(cId);
+		request.setAttribute("dto", dto);
 
 	}
 

@@ -31,6 +31,9 @@
 			<td>${dto.cContent}</td>
 		</tr>
 	</table>
+	<input type="button" value="답글" onclick="window.location='contentreplypage.co?cId=${dto.cId}'">&nbsp;&nbsp;
+	<input type="button" value="수정" onclick="window.location='contentedit.co?cId=${dto.cId}'">&nbsp;&nbsp;
+	<input type="button" value="삭제" onclick="window.location='contentdelete.co?cId=${dto.cId}'">
 	<jsp:include page="list.jsp" />
 
 </body>

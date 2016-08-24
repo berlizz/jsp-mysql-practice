@@ -31,7 +31,6 @@
 			</tr>
 		</c:forEach>
 	</table>
-	<!-- <button onclik="window.location='write.co'">글쓰기</button> -->
 	<input type="button" value="글쓰기" onclick="window.location='write.co'">
 	<a href="list.co">list.co</a>
 

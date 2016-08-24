@@ -8,24 +8,27 @@
 </head>
 <body>
 
-	<h1>게시판 글쓰기</h1>
-	<form action="contentwrite.co" method="post">
-		<table width="1500">
+	<h1>답글 쓰기</h1>
+	
+	<form action="contentreply.co" method="post">
+		<table widh="1500">
+			<input type="hidden" name="cGroup" value="${dto.cGroup}">
+			<input type="hidden" name="cStep" value="${dto.cStep}">
+			<input type="hidden" name="cIndent" value="${dto.cIndent}">
 			<tr>
 				<td>제목</td>
-				<td><input type="text" name="title"></td>
+				<td><input type="text" name="cTitle"></td>
 			</tr>
 			<tr>
 				<td>작성자</td>
-				<td><input type="text" name="name"></td>
+				<td><input type="text" name="cName"></td>
 			</tr>
 			<tr>
 				<td>내용</td>
-				<td><textarea name="content"></textarea></td>
+				<td><textarea name="cContent"></textarea></td>
 			</tr>
 		</table>
 		<input type="submit" value="등록">
 	</form>
-
 </body>
 </html>

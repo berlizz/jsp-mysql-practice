@@ -5,15 +5,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.practice.dao.ContentsDAO;
 
-public class cContentWriteCommand implements ContentsCommand {
+public class cContentDeleteCommand implements ContentsCommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		String cTitle = request.getParameter("title");
-		String cName = request.getParameter("name");
-		String cContent = request.getParameter("content");
+		String cId = request.getParameter("cId");
 		ContentsDAO dao = new ContentsDAO();
-		dao.contentWrite(cTitle, cName, cContent);
+		dao.contentDelete(cId);
 
 	}
 
