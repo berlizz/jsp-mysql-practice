@@ -31,7 +31,18 @@
 			</tr>
 		</c:forEach>
 	</table>
-	<input type="button" value="글쓰기" onclick="window.location='write.co'">
+	<input type="button" value="글쓰기" onclick="window.location='write.co'">&nbsp;&nbsp;
+	<%
+		if(session.getAttribute("") == null) {
+	%>
+			<input type="button" value="로그인" onclick="window.location='login.au'">
+	<%
+		} else {
+	%>
+			<input type="button" value="로그아웃" onclick="window.location=''">
+	<%
+		}
+	%>
 	<a href="list.co">list.co</a>
 
 </body>
