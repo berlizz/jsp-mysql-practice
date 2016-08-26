@@ -7,43 +7,64 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>게시판 리스트</h1>
-	<table width="1500">
-		<tr>
-			<td>번호</td>
-			<td>작성자</td>
-			<td>제목</td>
-			<td>조회수</td>
-			<td>작성일</td>
-		</tr>
-		<c:forEach items="${list}" var="content">
-			<tr>
-				<td>${content.cId}</td>
-				<td>${content.cName}</td>
-				<td><a href="contentview.co?cId=${content.cId}">
-					<c:forEach begin="1" end="${content.cIndent}">-</c:forEach>
-					${content.cTitle}</a></td>
-				<td>${content.cHit}</td>
-				<td>${content.cDate}</td>
-			</tr>
-		</c:forEach>
-	</table>
-	<input type="button" value="글쓰기" onclick="window.location='write.co'">&nbsp;&nbsp;
-	<%
-		if(session.getAttribute("") == null) {
-	%>
-			<input type="button" value="로그인" onclick="window.location='login.au'">
-	<%
-		} else {
-	%>
-			<input type="button" value="로그아웃" onclick="window.location=''">
-	<%
-		}
-	%>
-	<a href="list.co">list.co</a>
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<h1>게시판 리스트</h1>
+			<%
+				if(session.getAttribute("login") == null) {
+			%>
+					<h2>welcome</h2>
+			<%
+				} else {
+			%>
+					<h2>hello <%=session.getAttribute("login") %></h2>
+			<%
+				}
+			%>
+			<table width="1500" class="table table-hover">
+				<tr class="info">
+					<th class="text-center">번호</th>
+					<th class="text-center">작성자</th>
+					<th class="text-center">제목</th>
+					<th class="text-center">조회수</th>
+					<th class="text-center">작성일</th>
+				</tr>
+				<c:forEach items="${list}" var="content">
+					<tr>
+						<td class="text-center">${content.cId}</td>
+						<td class="text-center">${content.cName}</td>
+						<td><a href="contentview.co?cId=${content.cId}">
+							<c:forEach begin="1" end="${content.cIndent}">-</c:forEach>
+							${content.cTitle}</a></td>
+						<td class="text-center">${content.cHit}</td>
+						<td class="text-center">${content.cDate}</td>
+					</tr>
+				</c:forEach>
+			</table>
+			<input type="button" class="btn btn-primary" value="글쓰기" onclick="window.location='write.co'">&nbsp;&nbsp;
+			<%
+				if(session.getAttribute("login") == null) {
+			%>
+					<input type="button" class="btn btn-primary" value="로그인" onclick="window.location='login.au'">&nbsp;&nbsp;
+					<input type="button" class="btn btn-primary" value="회원가입" onclick="window.location='signup.au'">
+			<%
+				} else {
+			%>
+					<input type="button" class="btn btn-primary" value="로그아웃" onclick="window.location='logout.au'">
+			<%
+				}
+			%>
+			<a href="list.co">list.co</a>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
 
 </body>
 </html>

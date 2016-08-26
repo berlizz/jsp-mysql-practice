@@ -4,13 +4,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+
+<script src="SignUpCheck.js"></script>
+
 <title>Insert title here</title>
 </head>
 <body>
 
-	<h1>로그인 페이지</h1>
-	<form action="LoginCheck.jsp" method="post">
-		<table >
+	<h1>회원가입 페이지</h1>
+	<form action="membersignup.au" method="post" name="signupForm">
+		<table>
 			<tr>
 				<td>아이디</td>
 				<td><input type="text" name="mUserId"></td>
@@ -19,10 +22,18 @@
 				<td>비밀번호</td>
 				<td><input type="password" name="mPassword"></td>
 			</tr>
+			<tr>
+				<td>비밀번호 확인</td>
+				<td><input type="password" name="mPasswordCheck"></td>
+			</tr>
+			<tr>
+				<td>닉네임</td>
+				<td><input type="password" name="mDisplayName"></td>
+			</tr>
 		</table>
-		<input type="submit" value="로그인">&nbsp;&nbsp;
+		<input type="button" value="완료" onclick="passwordCheck()">
 		<input type="button" value="취소" onclick="window.location='list.co'">
 	</form>
-	
+
 </body>
 </html>

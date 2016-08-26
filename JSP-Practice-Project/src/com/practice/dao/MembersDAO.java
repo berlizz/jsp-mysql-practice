@@ -64,5 +64,40 @@ public class MembersDAO {
 		return result;
 	}
 	
+	public void memberSignup(String mUserId, String mPassword, String mDisplayName) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			conn = dataSource.getConnection();
+			String sql = "insert into members (mUserId, mPassword, mDisplayName) values (?, ?, ?)";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mUserId);
+			pstmt.setString(2, mPassword);
+			pstmt.setString(3, mDisplayName);
+			int returnValue = pstmt.executeUpdate();
+			if(returnValue == 0) {
+				//...
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch (SQLException e2) {
+				e2.printStackTrace();
+			}
+		}
+		
+	}
+	
 	
 }
+
+
+
+
+
+

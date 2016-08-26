@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.practice.command.MemberLoginCommand;
+import com.practice.command.MemberSignupCommand;
 import com.practice.command.MembersCommand;
 
 /**
@@ -52,6 +53,14 @@ public class MembersFronController extends HttpServlet {
 			viewPage = "MemberLoginPage.jsp";
 		} else if(path.equals("/memberlogin.au")) {
 			membersCommand = new MemberLoginCommand();
+			membersCommand.execute(request, response);
+			viewPage = "list.co";
+		} else if(path.equals("/logout.au")) {
+			viewPage = "Logout.jsp";
+		} else if(path.equals("/signup.au")) {
+			viewPage = "SignUpPage.jsp";
+		} else if(path.equals("/membersignup.au")) {
+			membersCommand = new MemberSignupCommand();
 			membersCommand.execute(request, response);
 			viewPage = "list.co";
 		}

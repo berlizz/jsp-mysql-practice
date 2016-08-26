@@ -5,20 +5,16 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.practice.dao.MembersDAO;
 
-public class MemberLoginCommand implements MembersCommand {
+public class MemberSignupCommand implements MembersCommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		String mUserId = request.getParameter("mUserId");
 		String mPassword = request.getParameter("mPassword");
-		
+		String mDisplayName = request.getParameter("mDisplayName");
 		MembersDAO dao = new MembersDAO();
-		
-		if(dao.memberLogin(mUserId, mPassword)) {
-			
-		} else {
-			
-		}
-		
+		dao.memberSignup(mUserId, mPassword, mDisplayName);
+
 	}
+
 }
